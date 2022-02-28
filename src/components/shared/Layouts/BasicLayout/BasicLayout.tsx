@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import Header from '../../Header/Header';
+import React from 'react'
+import Header from '@components/shared/Header/Header';
 
 export type HeaderInfo = {
   logo: {

@@ -3,9 +3,9 @@ import { appWithTranslation } from 'next-i18next'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useState } from 'react';
 import { ScreenClassProvider, setConfiguration } from 'react-grid-system';
-import { getBreakpoints } from '../utils/breakpoints';
-import breakpoints from '../config/breakpoints.config';
-import '../styles/global.scss'
+import { getBreakpoints } from 'utils/breakpoints';
+import breakpoints from 'config/breakpoints.config';
+import '@styles/global.scss'
 
 setConfiguration({
   breakpoints: getBreakpoints(breakpoints)

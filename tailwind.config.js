@@ -5,17 +5,17 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      cooper: ["cooper", "sans-serif"],
-      poppins_light: ["poppins_light", "serif"],
-      poppins_semibold: ["poppins_semibold", "serif"],
+      hindi: ["hindregular", "sans-serif"],
+      hindi_ligh: ["hindlight", "serif"],
+      hindi_medium: ["hindmedium", "serif"],
+      hindi_bold: ["hindsemibold", "serif"],
     },
     colors: {
       black: "#000",
-      green: "#026635",
+      "black-light": "#333",
+      green: "#8ED4AB",
       yellow: "#E2B800",
       white: "#fff",
-      gray: "#B6B6B6",
-      "gray-light": "#ECECEC",
     },
     screens: require("./config/breakpoints.config"),
     extend: {},

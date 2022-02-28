@@ -1,5 +1,5 @@
 import { Media } from "./types";
-import { axiosClient } from "../config/axiosClient";
+import { axiosClient } from "config/axiosClient";
 
 type Logo = {
   id: number;

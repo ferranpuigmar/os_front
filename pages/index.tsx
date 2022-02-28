@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import BasicLayout, { HeaderInfo } from '../components/shared/Layouts/BasicLayout/BasicLayout'
-import getBasicLayoutService from '../services/getBaseLayoutService'
+import BasicLayout, { HeaderInfo } from '@components/shared/Layouts/BasicLayout/BasicLayout'
+import getBasicLayoutService from '@services/getBaseLayoutService'
 
 const Home: NextPage<HomeProps> = ({ headerInfo }) => {
 
