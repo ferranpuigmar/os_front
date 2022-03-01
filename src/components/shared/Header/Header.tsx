@@ -4,6 +4,8 @@ import { HeaderInfo } from '@components/shared/Layouts/BasicLayout/BasicLayout'
 import { useQuery } from 'react-query';
 import getLocales from '@services/getLocales';
 import LangSelector from '@components/shared/LangSelector/LangSelector';
+import LogoOsteoSalix from '@assets/svg/logo.svg'
+
 import styles from './header.module.scss';
 
 type HeaderProps = {
@@ -25,7 +27,7 @@ const Header = ({ headerInfo }: HeaderProps) => {
             <img title={logo.name} src={logo.url} width={logo.width} />
           </Col>
           <Col>
-            <LangSelector locales={data} />
+            <LangSelector locales={data} isLoading={isLoading} />
           </Col>
         </Row>
       </Container>

@@ -1,0 +1,68 @@
+.langSelector {
+  position: relative;
+  height: 100%;
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-end;
+
+  &__selector {
+    display: inline-flex;
+    align-items: center;
+    margin: auto 0;
+
+    span {
+      @apply text-xl pr-1 text-white;
+
+      &:last-child {
+        @apply pr-0;
+      }
+    }
+  }
+
+  &__label {
+    @apply opacity-75;
+  }
+
+  &__locale {
+    @apply font-hindi_medium;
+  }
+
+  &__arrow {
+    @apply pl-1;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+    cursor: pointer;
+
+    svg {
+      width: 18px;
+    }
+
+    &Active {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__list {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 100px;
+    top: 100%;
+    transition: all 0.3s ease-in-out;
+    @apply border border-solid border-white bg-white bg-opacity-20;
+
+    li {
+      @apply p-2 text-left text-lg uppercase text-white font-hindi_bold;
+      cursor: pointer;
+
+      &:hover {
+        @apply bg-white bg-opacity-20;
+      }
+    }
+  }
+}
+
+.isActive {
+  visibility: visible;
+  opacity: 1;
+}
