@@ -12,8 +12,15 @@ const nextConfig = {
     defaultLocale: "ca",
     localeDetection: false,
   },
+  compiler: {
+    // ssr and displayName are configured by default
+    styledComponents: true,
+  },
   env: {
     SERVER_URL: process.env.NEXT_PUBLIC_SERVER_URL,
+  },
+  images: {
+    domains: ["localhost"],
   },
 };
 

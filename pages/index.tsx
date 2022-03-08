@@ -2,9 +2,12 @@ import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import BasicLayout, { HeaderInfo } from '@components/shared/Layouts/BasicLayout/BasicLayout'
 import getBasicLayoutService from '@services/getBaseLayoutService'
+import getHomeService from '@services/homeService'
+import { SpecialityDto, specialityDto } from '@services/dto/specialityDto'
+import { GetFormat, getFormat } from 'src/utils/getFormat'
+import HeroHome from '@components/Home/HeroHome/HeroHome'
 
-const Home: NextPage<HomeProps> = ({ headerInfo }) => {
-  console.log('headerInfo: ', headerInfo)
+const Home: NextPage<HomeProps> = ({ headerInfo, specialities, backgroundColor, background, title }) => {
   return (
     <>
       <Head>
@@ -13,7 +16,7 @@ const Home: NextPage<HomeProps> = ({ headerInfo }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicLayout headerInfo={headerInfo}>
-        <h1>Hola...</h1>
+        <HeroHome title={title} bgColor={backgroundColor} bgImage={background} bubbles={specialities} />
       </BasicLayout>
     </>
   )
@@ -23,7 +26,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const headerInfo = await getBasicLayoutService();
   const { Logo } = headerInfo.data.attributes;
 
-  console.log(Logo)
+  const HomeInfo = await getHomeService();
+  const { locale, specialities: banner, title } = HomeInfo.data.attributes;
+  const { specialities, backgroundColor, backgroundImage } = banner;
 
   return {
     props: {
@@ -34,7 +39,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
           url: `${process.env.SERVER_URL}${Logo.image.data.attributes.url}`,
           width: Logo.image.data.attributes.width
         }
-      }
+      },
+      specialities: specialities.map(speciality => specialityDto(speciality)) || [],
+      backgroundColor,
+      background: getFormat(backgroundImage),
+      title
     }
   }
 }
@@ -42,6 +51,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default Home
 
 type HomeProps = {
-  locale: string
+  locale: string;
+  title: string;
   headerInfo: HeaderInfo;
+  specialities: SpecialityDto[];
+  backgroundColor: string;
+  background: GetFormat | string | null;
 }

@@ -1,0 +1,25 @@
+.bubbleCard {
+  margin-right: 90px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  z-index: 1;
+
+  &__title {
+    @apply text-lg font-hindi_medium;
+    text-align: center;
+    max-width: 221px;
+  }
+
+  &__image {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 15px;
+    border-radius: 80px;
+    overflow: hidden;
+
+    span {
+      height: 100% !important;
+    }
+  }
+}

@@ -4,7 +4,6 @@ import { HeaderInfo } from '@components/shared/Layouts/BasicLayout/BasicLayout'
 import { useQuery } from 'react-query';
 import getLocales from '@services/getLocales';
 import LangSelector from '@components/shared/LangSelector/LangSelector';
-import LogoOsteoSalix from '@assets/svg/logo.svg'
 
 import styles from './header.module.scss';
 
@@ -14,10 +13,6 @@ type HeaderProps = {
 const Header = ({ headerInfo }: HeaderProps) => {
   const { logo } = headerInfo;
   const { isLoading, isError, data, error } = useQuery('locales', getLocales)
-
-  useEffect(() => {
-    console.log('data: ', data)
-  }, [data])
 
   return (
     <header className={styles.header}>
