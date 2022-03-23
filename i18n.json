@@ -1,0 +1,8 @@
+{
+  "locales": ["ca", "es", "en"],
+  "defaultLocale": "ca",
+  "pages": {
+    "*": ["common"]
+  },
+  "localeDetection": false
+}

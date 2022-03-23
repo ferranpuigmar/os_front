@@ -1,0 +1,47 @@
+.card {
+  position: relative;
+  display: inline-flex;
+
+  &__icon {
+    padding-right: 20px;
+    min-width: 50px;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 100%;
+
+    @screen md {
+      max-width: 80%;
+      width: auto;
+    }
+
+    @screen lg {
+      max-width: 60%;
+      width: auto;
+    }
+
+    @screen xl {
+      max-width: 259px;
+      width: auto;
+    }
+  }
+
+  &__title {
+    @apply font-hindi_medium;
+    display: block;
+  }
+
+  &__link {
+    @apply font-hindi_bold text-green;
+    cursor: pointer;
+
+    &:hover {
+      @apply text-opacity-80;
+    }
+  }
+}

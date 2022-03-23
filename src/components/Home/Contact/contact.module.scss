@@ -1,0 +1,45 @@
+.contact {
+  position: relative;
+  z-index: 1;
+  @apply -mt-4 mb-10;
+
+  &__title {
+    @apply text-3xl text-center font-hindi_bold text-green mb-9;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    @apply mb-8;
+
+    @screen xxl {
+      max-width: 70%;
+    }
+
+    > * {
+      @apply pr-6 mb-3;
+
+      width: 100%;
+
+      @screen md {
+        width: 50%;
+      }
+
+      @screen xl {
+        width: auto;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}

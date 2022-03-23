@@ -4,10 +4,10 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { useState } from 'react';
 import { ScreenClassProvider, setConfiguration } from 'react-grid-system';
 import { getBreakpoints } from 'utils/breakpoints';
-import breakpoints from 'config/breakpoints.config';
-
-import '@styles/global.scss'
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import BasicLayout from '@components/shared/Layouts/BasicLayout/BasicLayout';
+import breakpoints from 'config/breakpoints.config';
+import '@styles/global.scss'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -30,9 +30,18 @@ setConfiguration({
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
-  return <ScreenClassProvider><QueryClientProvider client={queryClient}><GlobalStyle /><ThemeProvider theme={theme}>
-
-    <Component {...pageProps} /></ThemeProvider></QueryClientProvider ></ScreenClassProvider>
+  return (
+    <ScreenClassProvider>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <BasicLayout {...pageProps}>
+            <Component {...pageProps} />
+          </BasicLayout>
+        </ThemeProvider>
+      </QueryClientProvider >
+    </ScreenClassProvider>
+  )
 }
 
 export default appWithTranslation(MyApp) 
